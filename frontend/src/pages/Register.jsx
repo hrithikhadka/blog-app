@@ -1,14 +1,14 @@
 import React from "react";
 
-const LoginPage = () => {
+const Register = () => {
   return (
-    <form className="login">
-      <h1>Login</h1>
+    <form className="register">
+      <h1>Register</h1>
       <input type="text" placeholder="username" />
       <input type="password" placeholder="password" />
-      <button>login</button>
+      <button>Register</button>
     </form>
   );
 };
 
-export default LoginPage;
+export default Register;
