@@ -20,7 +20,7 @@ body {
   color: #222;
 }
 h1 {
-  font-size: 24px;
+  /* font-size: 24px; */
   color: #171717;
 }
 p {
@@ -104,4 +104,41 @@ nav a {
 
 .left-side {
   margin-top: 1.3rem;
+}
+
+/*login and register page*/
+
+form.login,
+form.register {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+form h1 {
+  text-align: center;
+  font-weight: 600;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+  display: block;
+  margin-bottom: 7px;
+  width: 100%;
+  padding: 5px 7px;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+button {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  width: 100%;
+  display: block;
+  border: 0;
+  background-color: black;
+  color: #fff;
+  border-radius: 5px;
+  padding: 7px 0;
+  cursor: pointer;
 }
