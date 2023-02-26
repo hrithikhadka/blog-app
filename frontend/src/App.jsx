@@ -1,18 +1,27 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Layout from "./Layout";
 import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
+import Header from "./Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} exact />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Register />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </Router>
+    // <Routes>
+    //   <Route path="/" element={<Layout />}>
+    //     <Route index element={<HomePage />} />
+    //     <Route path="/login" element={<LoginPage />} />
+    //     <Route path="/register" element={<Register />} />
+    //   </Route>
+    // </Routes>
   );
 }
 
