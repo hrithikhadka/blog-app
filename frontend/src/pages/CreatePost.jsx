@@ -10,6 +10,9 @@ const CreatePost = () => {
         <input type="summary" placeholder={"Summary"} />
         <input type="file" />
         <ReactQuill />
+        <button style={{ marginTop: ".5rem", backgroundColor: "#222" }}>
+          Publish
+        </button>
       </form>
     </main>
   );
