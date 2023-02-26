@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import LoginPage from "./pages/LoginPage";
 import Register from "./pages/Register";
 import Header from "./Header";
+import CreatePost from "./pages/CreatePost";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<HomePage />} exact />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/create" element={<CreatePost />} />
       </Routes>
     </Router>
     // <Routes>
