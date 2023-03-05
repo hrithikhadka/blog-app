@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 const Header = () => {
-  const username = true;
+  const username = false;
   return (
     <header>
       <Link to="/" className="logo">
