@@ -7,11 +7,19 @@ const Register = () => {
 
   const register = async (e) => {
     e.preventDefault();
-    await fetch("http://localhost:5000/register", {
+
+    const rsp = await fetch("http://localhost:5000/register", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
+
+    // console.log(rsp);
+    if (rsp.status !== 200) {
+      alert("Registration failed");
+    } else {
+      alert("Registered!");
+    }
   };
 
   return (
