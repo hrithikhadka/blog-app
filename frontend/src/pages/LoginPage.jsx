@@ -12,8 +12,9 @@ const LoginPage = () => {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
-    console.log(rsp);
+    // console.log(rsp);
   };
   return (
     <form className="login" onSubmit={login}>

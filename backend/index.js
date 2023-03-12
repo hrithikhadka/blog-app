@@ -6,12 +6,14 @@ const mongoose = require("mongoose");
 const User = require("./models/User");
 const port = process.env.PORT || 5000;
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 dotenv.config();
 
 const salt = bcrypt.genSaltSync(10);
+const secretKey = "abhitj97i5tki4lodu2s340wswer";
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: "http://127.0.0.1:5173" }));
 app.use(express.json());
 
 mongoose.set("strictQuery", true);
@@ -38,7 +40,14 @@ app.post("/login", async (req, res) => {
   const userDocument = await User.findOne({ username });
   // res.json(userDocument);
   const passwordMatch = bcrypt.compareSync(password, userDocument.password);
-  res.json(passwordMatch);
+  if (passwordMatch) {
+    jwt.sign({ username, id: userDocument._id }, secretKey, {}, (er, token) => {
+      if (er) throw er;
+      res.cookie("token", token).json("ok");
+    });
+  } else {
+    res.status(400).json("Wrong Credentials!");
+  }
 });
 
 app.listen(port, () => console.log(`server started on port ${port}`));
