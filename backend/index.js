@@ -33,4 +33,12 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  const userDocument = await User.findOne({ username });
+  // res.json(userDocument);
+  const passwordMatch = bcrypt.compareSync(password, userDocument.password);
+  res.json(passwordMatch);
+});
+
 app.listen(port, () => console.log(`server started on port ${port}`));
