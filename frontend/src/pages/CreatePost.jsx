@@ -40,10 +40,25 @@ const CreatePost = () => {
   return (
     <main>
       <form action="">
-        <input type="title" placeholder={"Title"} />
-        <input type="summary" placeholder={"Summary"} />
+        <input
+          type="title"
+          placeholder={"Title"}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="summary"
+          placeholder={"Summary"}
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+        />
         <input type="file" />
-        <ReactQuill value={content} modules={modules} formats={formats} />
+        <ReactQuill
+          value={content}
+          modules={modules}
+          formats={formats}
+          onChange={(newVal) => setContent(newVal)}
+        />
         <button style={{ marginTop: ".5rem", backgroundColor: "#222" }}>
           Publish
         </button>
