@@ -7,6 +7,8 @@ const port = process.env.PORT || 5000;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 const session = require("express-session");
 
 const salt = bcrypt.genSaltSync(10);
@@ -92,6 +94,11 @@ app.get("/profile", (req, res) => {
 app.post("/logout", (req, res) => {
   res.clearCookie("token");
   res.send("cookie cleared");
+});
+
+app.post("/post", upload.single("image"), (req, res) => {
+  // console.log(req.file);
+  res.json({ files: req.file });
 });
 
 app.listen(port, () => console.log(`server started on port ${port}`));
