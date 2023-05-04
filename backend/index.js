@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
+const fs = require("fs");
 const session = require("express-session");
 
 const salt = bcrypt.genSaltSync(10);
@@ -98,7 +99,11 @@ app.post("/logout", (req, res) => {
 
 app.post("/post", upload.single("image"), (req, res) => {
   // console.log(req.file);
-  res.json({ files: req.file });
+  const { originalname, path } = req.file;
+  const parts = originalname.split(".");
+  const fileExt = parts[parts.length - 1];
+  fs.renameSync(path, `uploads/${req.file.filename}.${fileExt}`);
+  res.json({ fileExt });
 });
 
 app.listen(port, () => console.log(`server started on port ${port}`));
