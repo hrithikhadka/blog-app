@@ -2,12 +2,14 @@ import React from "react";
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
   const [images, setImages] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   const modules = {
     toolbar: [
@@ -46,13 +48,18 @@ const CreatePost = () => {
     postData.set("image", images[0]);
     e.preventDefault();
     // console.log(images);
-    const reponse = await fetch("http://localhost:5000/post", {
+    const response = await fetch("http://localhost:5000/post", {
       method: "POST",
       body: postData,
     });
-    console.log(await reponse.json());
+    // console.log(await reponse.json());
+    if (response.ok) {
+      setRedirect(true);
+    }
   }
-
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <main>
       <form action="" onSubmit={newPost}>
