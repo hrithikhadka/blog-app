@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 const User = require("./models/User");
+const Post = require("./models/Post");
 const port = process.env.PORT || 5000;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -97,13 +98,25 @@ app.post("/logout", (req, res) => {
   res.send("cookie cleared");
 });
 
-app.post("/post", upload.single("image"), (req, res) => {
+app.post("/post", upload.single("image"), async (req, res) => {
   // console.log(req.file);
   const { originalname, path } = req.file;
   const parts = originalname.split(".");
   const fileExt = parts[parts.length - 1];
-  fs.renameSync(path, `uploads/${req.file.filename}.${fileExt}`);
-  res.json({ fileExt });
+  const newPath = `uploads/${req.file.filename}.${fileExt}`;
+  fs.renameSync(path, newPath);
+
+  const { title, summary, content } = req.body;
+
+  const postData = await Post.create({
+    title,
+    summary,
+    content,
+    photo: newPath,
+  });
+
+  // res.json({ title, summary, content });
+  res.json(postData);
 });
 
 app.listen(port, () => console.log(`server started on port ${port}`));
