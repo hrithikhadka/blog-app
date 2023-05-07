@@ -40,14 +40,16 @@ function Header() {
         MyBlog
       </Link>
       <nav>
-        {username ? (
+        {username && (
           <>
             <Link to="/create">Create Post</Link>
             <a href="" onClick={logout}>
               Logout
             </a>
           </>
-        ) : (
+        )}
+
+        {!username && (
           <>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>

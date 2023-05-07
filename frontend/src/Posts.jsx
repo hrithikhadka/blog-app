@@ -1,10 +1,10 @@
 import React from "react";
 import SinglePost from "./SinglePost";
 
-const Posts = () => {
+const Posts = ({ post }) => {
   return (
     <>
-      <SinglePost />
+      <SinglePost {...post} />
     </>
   );
 };

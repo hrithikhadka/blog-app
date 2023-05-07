@@ -75,10 +75,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.json("hello");
-});
-
 app.get("/profile", (req, res) => {
   const { token } = req.cookies;
   console.log(req.cookies);
@@ -94,7 +90,8 @@ app.get("/profile", (req, res) => {
 });
 
 app.post("/logout", (req, res) => {
-  res.clearCookie("token");
+  // res.clearCookie("token");
+  res.cookie("token", "");
   res.send("cookie cleared");
 });
 
@@ -106,17 +103,29 @@ app.post("/post", upload.single("image"), async (req, res) => {
   const newPath = `uploads/${req.file.filename}.${fileExt}`;
   fs.renameSync(path, newPath);
 
-  const { title, summary, content } = req.body;
-
-  const postData = await Post.create({
-    title,
-    summary,
-    content,
-    photo: newPath,
+  const { token } = req.cookies;
+  jwt.verify(token, secretKey, {}, async (er, info) => {
+    if (er) throw er;
+    const { title, summary, content, author } = req.body;
+    const postData = await Post.create({
+      title,
+      summary,
+      content,
+      photo: newPath,
+      author: info.id,
+    });
+    res.json(postData);
+    // res.json(info);
+    // res.json({ title, summary, content });
   });
-
-  // res.json({ title, summary, content });
-  res.json(postData);
 });
 
+app.get("/posts", async (req, res) => {
+  const posts = await Post.find().populate("author", ["username"]);
+  res.json(posts);
+});
+
+app.get("/", (req, res) => {
+  res.json("hello");
+});
 app.listen(port, () => console.log(`server started on port ${port}`));
