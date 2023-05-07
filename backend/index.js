@@ -121,7 +121,10 @@ app.post("/post", upload.single("image"), async (req, res) => {
 });
 
 app.get("/posts", async (req, res) => {
-  const posts = await Post.find().populate("author", ["username"]);
+  const posts = await Post.find()
+    .populate("author", ["username"])
+    .sort({ createdAt: -1 })
+    .limit(20);
   res.json(posts);
 });
 
