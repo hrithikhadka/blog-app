@@ -18,6 +18,7 @@ const secretKey = "abhitj97i5tki4lodu2s340wswer";
 
 app.use(express.json());
 app.use(cookieParser());
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
 app.use(cors({ credentials: true, origin: "http://127.0.0.1:5173" }));
 
@@ -126,6 +127,13 @@ app.get("/posts", async (req, res) => {
     .sort({ createdAt: -1 })
     .limit(20);
   res.json(posts);
+});
+
+app.get("/post/:id", async (req, res) => {
+  const { id } = req.params;
+  // res.json(req.params);
+  const post = await Post.findById(id).populate("author", ["username"]);
+  res.json(post);
 });
 
 app.get("/", (req, res) => {

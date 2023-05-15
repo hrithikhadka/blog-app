@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -11,15 +12,14 @@ body {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: black;
+  color: #171717;
 }
 li {
   list-style-type: none;
 }
-body {
-  color: #222;
-}
-h1 {
+
+h1,
+h2 {
   /* font-size: 24px; */
   color: #171717;
 }
@@ -38,8 +38,9 @@ header {
   justify-content: space-between;
   max-width: 960px;
   margin: 0 auto;
-  padding-top: 2.5rem;
-  padding-bottom: 2rem;
+  padding: 2.5rem 0.4rem 2rem 0.4rem;
+  /* padding-top: 2.5rem;
+  padding-bottom: 2rem; */
   margin-bottom: 50px;
   align-items: center;
 }
@@ -65,7 +66,10 @@ nav a {
 }
 
 .before-post {
-  padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 1rem 0.5rem 1rem;
+
   /* margin-top: -3rem; */
 }
 
@@ -81,19 +85,22 @@ nav a {
 }
 
 .single-post {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid #e5e5e5;
+  padding: 0 1rem 0.5rem 1rem;
 }
 
 .single-post:last-child {
-  border-bottom: 1px solid #e5e5e5;
 }
 
 .single-post-wrapper {
   display: grid;
   gap: 30px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 768px) {
+  .single-post-wrapper {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .right-side {
@@ -106,6 +113,21 @@ nav a {
 
 .left-side {
   margin-top: 1.3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .right-side h2 {
+    margin-top: 0;
+  }
+  .left-side p {
+    margin: 0;
+  }
+  .before-post h1 {
+    font-size: 40px;
+  }
+  .before-post p {
+    font-size: 17px;
+  }
 }
 
 /*login and register page*/
@@ -145,4 +167,51 @@ button {
   border-radius: 5px;
   padding: 7px 0;
   cursor: pointer;
+}
+
+/*post page*/
+
+.post-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.post-page .post-image {
+  max-height: 350px;
+  display: flex;
+  overflow: hidden;
+}
+
+.post-image img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.post-page h1 {
+  text-align: center;
+  font-size: 45px;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .post-page h1 {
+    font-size: 30px;
+  }
+  .post-page h2 {
+    font-size: 19px;
+  }
+}
+
+.post-page .author {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.post-page time {
+  text-align: center;
+  color: #6b7280;
+  display: block;
 }
