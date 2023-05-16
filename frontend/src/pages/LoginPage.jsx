@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +40,10 @@ const LoginPage = () => {
 
   return (
     <form className="login" onSubmit={login}>
-      <h1>Login</h1>
+      <h1>
+        Login <FontAwesomeIcon icon={faArrowRightToBracket} />
+      </h1>
+
       <input
         type="text"
         placeholder="username"

@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -24,7 +26,9 @@ const Register = () => {
 
   return (
     <form className="register" onSubmit={register}>
-      <h1>Register</h1>
+      <h1>
+        Register <FontAwesomeIcon icon={faUserPlus} />
+      </h1>
       <input
         type="text"
         placeholder="username"
