@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { UserContextProvider } from "./UserContext";
 import PostPage from "./pages/PostPage";
+import EditPost from "./pages/EditPost";
 
 // axios.defaults.baseURL = "http://127.0.0.1:5000";
 // axios.defaults.withCredentials = true;
@@ -24,6 +25,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/post/:id" element={<PostPage />}></Route>
+          <Route path="/edit/:id" element={<EditPost />} />
         </Routes>
       </Router>
     </UserContextProvider>

@@ -215,6 +215,10 @@ button {
   display: block;
 }
 
+.post-page .content-para p {
+  line-height: 2rem;
+}
+
 .authEdit {
   display: flex;
   justify-content: space-around;
@@ -232,7 +236,7 @@ button {
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 20px;
   margin: 0 5px 0 0;

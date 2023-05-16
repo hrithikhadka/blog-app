@@ -44,7 +44,10 @@ const PostPage = () => {
       <div className="post-image">
         <img src={`http://localhost:5000/${postInfo.photo}`} alt="" />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
+      <div
+        className="content-para"
+        dangerouslySetInnerHTML={{ __html: postInfo.content }}
+      />
     </div>
   );
 };

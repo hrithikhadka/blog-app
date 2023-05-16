@@ -121,6 +121,38 @@ app.post("/post", upload.single("image"), async (req, res) => {
   });
 });
 
+app.put("/post", upload.single("image"), async (req, res) => {
+  // res.json(req.image);
+  let newPath = null;
+  if (req.file) {
+    const { originalname, path } = req.file;
+    const parts = originalname.split(".");
+    const fileExt = parts[parts.length - 1];
+    newPath = `uploads/${req.file.filename}.${fileExt}`;
+    fs.renameSync(path, newPath);
+  }
+
+  const { token } = req.cookies;
+  jwt.verify(token, secretKey, {}, async (er, info) => {
+    if (er) throw er;
+    const { id, title, summary, content, author } = req.body;
+    const postData = await Post.findById(id);
+    const isUser = JSON.stringify(postData.author) === JSON.stringify(info.id);
+    //check for author
+    // res.json({ isUser, postData, info });
+    if (!isUser) {
+      return res.status(400).json("Not Authorized");
+    }
+    await postData.update({
+      title,
+      summary,
+      content,
+      photo: newPath ? newPath : postData.photo.image,
+    });
+    res.json(postData);
+  });
+});
+
 app.get("/posts", async (req, res) => {
   const posts = await Post.find()
     .populate("author", ["username"])
