@@ -20,7 +20,6 @@ li {
 
 h1,
 h2 {
-  /* font-size: 24px; */
   color: #171717;
 }
 p {
@@ -34,14 +33,14 @@ main {
   margin: 0 auto;
   padding: 0 1rem 0.5rem 1rem;
 }
+
+/*header*/
 header {
   display: flex;
   justify-content: space-between;
   max-width: 960px;
   margin: 0 auto;
   padding: 2.5rem 0.4rem 2rem 0.4rem;
-  /* padding-top: 2.5rem;
-  padding-bottom: 2rem; */
   margin-bottom: 50px;
   align-items: center;
 }
@@ -62,16 +61,13 @@ nav a {
   font-size: 1.2rem;
 }
 
+/*post*/
 .posts {
   padding-left: 0;
 }
 
 .before-post {
-  /* padding-bottom: 0.5rem; */
   border-bottom: 1px solid #e5e5e5;
-  /* padding: 0 1rem 0.5rem 1rem; */
-
-  /* margin-top: -3rem; */
 }
 
 .before-post h1 {
@@ -83,10 +79,6 @@ nav a {
 .before-post p {
   font-size: 1.125rem;
   line-height: 1.75rem;
-}
-
-.single-post {
-  /* padding: 0 1rem 0.5rem 1rem; */
 }
 
 .single-post-wrapper {
@@ -224,6 +216,7 @@ button {
   line-height: 2rem;
 }
 
+/*edit page*/
 .authEdit {
   display: flex;
   justify-content: space-around;
