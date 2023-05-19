@@ -32,6 +32,7 @@ img {
 main {
   max-width: 960px;
   margin: 0 auto;
+  padding: 0 1rem 0.5rem 1rem;
 }
 header {
   display: flex;
@@ -68,7 +69,7 @@ nav a {
 .before-post {
   /* padding-bottom: 0.5rem; */
   border-bottom: 1px solid #e5e5e5;
-  padding: 0 1rem 0.5rem 1rem;
+  /* padding: 0 1rem 0.5rem 1rem; */
 
   /* margin-top: -3rem; */
 }
@@ -85,10 +86,7 @@ nav a {
 }
 
 .single-post {
-  padding: 0 1rem 0.5rem 1rem;
-}
-
-.single-post:last-child {
+  /* padding: 0 1rem 0.5rem 1rem; */
 }
 
 .single-post-wrapper {
@@ -116,8 +114,11 @@ nav a {
 }
 
 @media screen and (max-width: 768px) {
+  .right-side {
+    margin-top: -1.5rem;
+  }
   .right-side h2 {
-    margin-top: 0;
+    margin: 0;
   }
   .left-side p {
     margin: 0;
@@ -128,6 +129,9 @@ nav a {
   .before-post p {
     font-size: 17px;
   }
+  .right-side p {
+    margin: 0;
+  }
 }
 
 /*login and register page*/
@@ -137,6 +141,7 @@ form.register {
   max-width: 400px;
   margin: 0 auto;
   font-weight: 600;
+  padding: 0 1rem 0.5rem 1rem;
 }
 
 form.login h1,

@@ -32,12 +32,10 @@ const SinglePost = ({
           </Link>
           <p>{summary} </p>
           <Link to={`/post/${_id}`}>
-            <a>
-              Read more{" "}
-              <span>
-                <HiArrowRight />
-              </span>
-            </a>
+            Read more{" "}
+            <span>
+              <HiArrowRight />
+            </span>
           </Link>
         </div>
       </div>
