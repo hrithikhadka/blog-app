@@ -1,20 +1,11 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../UserContext";
 
 function Header() {
-  // const [username, setUsername] = useState(null);
   const { setUserInfo, userInfo } = useContext(UserContext);
 
   useEffect(() => {
-    // if (!username) {
-    //   console.log("header.js");
-    // }
-
-    // if (username) {
-    //   return;
-    // }
-
     fetch("http://localhost:5000/profile", {
       credentials: "include",
     }).then((response) => {

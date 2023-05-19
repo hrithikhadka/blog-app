@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Posts from "../Posts";
-import Title from "../Title";
+import Posts from "../Components/Posts";
+import Title from "../Components/Title";
 
 const IndexPage = () => {
   const [posts, setPosts] = useState([]);
