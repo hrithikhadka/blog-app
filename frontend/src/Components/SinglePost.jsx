@@ -16,10 +16,6 @@ const SinglePost = ({
     <div className="single-post">
       <div className="single-post-wrapper">
         <div className="left-side">
-          {/* <img
-            src="https://as2.ftcdn.net/v2/jpg/04/01/10/45/1000_F_401104518_VX8EVoEuhxfYPk2pj3d6nMkB50xHuHRF.jpg"
-            alt=""
-          /> */}
           <p>
             {" "}
             {author.username}
