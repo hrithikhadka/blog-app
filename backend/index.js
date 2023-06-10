@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
+require("dotenv").config();
 const port = 5000;
 
 //route handlers
@@ -23,9 +24,7 @@ app.use(cors({ credentials: true, origin: "http://127.0.0.1:5173" }));
 
 mongoose.set("strictQuery", true);
 //connect to db
-mongoose.connect(
-  "mongodb+srv://blog:blog@cluster0.ny7sbff.mongodb.net/?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.MONGO_URL);
 
 //configuring routes
 app.use("/login", loginRoute);
