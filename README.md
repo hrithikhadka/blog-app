@@ -8,6 +8,11 @@ This project is in-progress.
 
 ## Project Screen Shots
 
+## Acknowledgement
+
+- The design for this blog application was inspired by the work from [site](https://tailwind-nextjs-starter-blog.vercel.app/).
+  - Design by: [Timothy](https://github.com/timlrx) and other contributors
+
 ## Reflection
 
 ## Challenges
