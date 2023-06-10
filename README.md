@@ -4,7 +4,7 @@ A MERN blog application built with MongoDB, Express, React, and Node. React.js i
 
 ## Project Status
 
-This project is in-progress.
+This project is now completed and ready for use. All major planned features and functionalities have been implemented and tested successfully.
 
 ## Project Screen Shots
 
@@ -14,6 +14,10 @@ This project is in-progress.
   - Design by: [Timothy](https://github.com/timlrx) and other contributors
 
 ## Reflection
+
+Creating the MERN blog application has been a rewarding and insightful experience. The motivation behind this project was to build a comprehensive and user-friendly blogging platform that incorporates essential features for seamless content creation and management.
+
+Throughout the development process, I set several goals for this project. First, I aimed to create a responsive and visually appealing user interface using React.js. Leveraging the power of React's component-based architecture, I was able to create the frontend that enhances the user experience. The design inspiration for this blog application was taken from the amazing work done by Timothy and other contributors, that influenced the final look of the application. Implementing user authentication was another critical aspect of the project. By integrating user registration, login, and logout functionality, I aimed to ensure that only authorized users can create and edit posts. This added a layer of security and personalization to the application, enabling individuals to manage their own content. One of the main highlights of this project is the post creation and editing feature. With the help of MongoDB as the backend database, I was able to store and retrieve post data efficiently.
 
 ## Challenges
 
