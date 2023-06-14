@@ -8,6 +8,8 @@ This project is now completed and ready for use. All major planned features and 
 
 ## Project Screen Shots
 
+![Pic1](https://github.com/hrithikhadka/mern-blog/assets/73479315/40d93161-4b89-484f-a9bc-3eb4481a791b)
+![Pic3](https://github.com/hrithikhadka/mern-blog/assets/73479315/2a5ba174-1d83-429a-a15b-f53716bdd48e)
 ## Acknowledgement
 
 - The design for this blog application was inspired by the work from [site](https://tailwind-nextjs-starter-blog.vercel.app/).
